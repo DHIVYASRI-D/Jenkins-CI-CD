@@ -9,7 +9,7 @@ body {
 }
 
 .calculator {
-    width: 300px;
+    width: 400px;
     border: 2px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
