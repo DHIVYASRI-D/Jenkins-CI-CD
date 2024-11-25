@@ -1,45 +1,32 @@
 pipeline {
-    agent any
+    agent any  // This means the pipeline can run on any available agent
 
     stages {
-        stage('Clone Repository') {
+        stage('Checkout') {
             steps {
-                // Clone the repository from GitHub
-                git branch: 'main', url: 'https://github.com/DHIVYASRI-D/Jenkins-CI-CD.git'
-            }
-        }
-
-        stage('Check HTML Syntax') {
-            steps {
-                // Install HTMLHint and check syntax of index.html
-                sh '''
-                npm install -g htmlhint
-                htmlhint index.html
-                '''
-            }
-        }
-
-        stage('Check CSS Syntax') {
-            steps {
-                // Install Stylelint and check syntax of style.css
-                sh '''
-                npm install -g stylelint
-                stylelint style.css
-                '''
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                // This stage is a placeholder for any tests you want to run
-                echo 'Running tests... (No tests configured yet)'
+                // Checkout the code from GitHub repository
+                git 'https://github.com/DHIVYASRI-D/Jenkins-CI-CD.git'
             }
         }
 
         stage('Build') {
             steps {
-                // This is a placeholder stage for building your project (currently a simple echo)
-                echo 'Build successful! Your static files are ready.'
+                // Placeholder for build commands (e.g., compile, package, etc.)
+                echo 'Building the project...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Placeholder for test commands (e.g., unit tests)
+                echo 'Running tests...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Placeholder for deploy commands (e.g., deploy to staging/production)
+                echo 'Deploying the application...'
             }
         }
     }
